@@ -3,13 +3,13 @@ Note: All distributions use the same kernel.  This can cause problems if you do 
 
 ## Environment
 Some commands may need to be tweaked in other distributions  
-WSL 2
+WSL 2  
 Ubuntu 20.04.3 LTS  
 
 ## Backup WSL distribution (Optional)
 Instructions to [Backup and Clone](Backup_Clone.md) WSL Distribution
 
-## Get and build kernel
+## Get the kernel source
 In **WSL** (bash)  
 ```
 # Update
@@ -28,13 +28,15 @@ git checkout linux-msft-wsl-$(uname -r | sed -e 's/\([0-9.]*\)-.*/\1/')
 zcat /proc/config.gz > .config
 ```
 
-### Optional: Change options
+## Optional: Change options
 Eg. [Enable USB](Kernel_Enable_USB.md)
 
+## Build the kernel
 Compile the kernel  
 ``` make -j $(getconf _NPROCESSORS_ONLN) && sudo make modules_install -j $(getconf _NPROCESSORS_ONLN) && sudo make install -j $(getconf _NPROCESSORS_ONLN)```
 
-Build USBIP tools  
+
+## Optional: Build USBIP tools  
 ```
 cd tools/usb/usbip
 ./autogen.sh
@@ -42,11 +44,9 @@ cd tools/usb/usbip
 sudo make install -j $(getconf _NPROCESSORS_ONLN)
 ```
 
+## Install the kernel
 Copy library so it can be used  
 ```sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0```
-
-Install USB IDs so names display  
-```sudo apt install -y hwdata```
 
 Install the kernel  
 ```cp arch/x86/boot/bzImage /mnt/c/Users/<user>/usbip-bzImage```
@@ -59,3 +59,8 @@ In **Windows** restart WSL so it uses the new kernel
 ```wsl --terminate```
 
 Launch any instance and it will use the new kernel
+
+## Optional 
+Install USB IDs so names display  
+```sudo apt install -y hwdata```
+
