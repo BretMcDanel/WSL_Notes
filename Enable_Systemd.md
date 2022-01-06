@@ -21,3 +21,13 @@ wsl --shutdown
 ## Start it up
 Restart WSL in your usual way and it should start systemd and all of the enabled services.
 
+## Issues
+* /tmp/.X11-unix should be a symlink to /mnt/wslg/.X11-unix but that sometimes gets wiped
+* I start everything with an xterm shortcut on my Windows task bar, so I never do a "login"
+** C:\Windows\System32\wsl.exe xfce4-terminal --working-directory $HOME
+** I had to add the following to my .bashrc as a result
+```
+if [ -z "$(pidof /usr/bin/systemd)" ]; then
+    exec sudo /bin/sh /etc/profile.d/00-wsl2-systemd.sh
+fi
+```
