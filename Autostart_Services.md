@@ -16,31 +16,10 @@ command = /etc/runAtStartup.sh
 ```
 
 ## The Script
-I use a simple logging script, its not pretty but it works.
+I use a [simple logging script](scripts/runAtStartup.sh), its not pretty but it works.
 
-```
-#!/bin/bash
+Download the script, place at the location specified in the wsl.conf file and ```chmod 755 <script>```
 
-# List of space separated services to start
-SERVICES="dbus avahi-daemon ssh mysql"
-
-# Log all output to a bootlog file
-exec 3>&1 4>&2
-trap 'exec 2>&4 1>&3' 0 1 2 3
-exec 1>/var/log/bootlog.$(/usr/bin/date +%Y-%d-%m-%H.%M.%S) 2>&1
-
-echo Bootup $(date)
-echo =================== ENV ===============
-env
-echo =================== ENV ===============
-
-# Start services
-for i in ${SERVICES}; do
-    service "${i}" start
-done
-
-echo Done initializing $(date)
-```
 
 ## Restart WSL
 In **Windows**
