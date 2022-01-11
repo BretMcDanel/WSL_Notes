@@ -9,7 +9,7 @@ In WSL you need a couple tools (Ubuntu in my instance, non-Debian based will hav
 ```sudo apt update && sudo apt -y install linux-tools-5.4.0-77-generic hwdata```
 
 # Explanation
-[This script](blob/main/scripts/usb_connect.sh) calls powershell.exe to invoke usbipd on the Windows side and attach the USB device specified in the script.
+[This script](scripts/usb_connect.sh) calls powershell.exe to invoke usbipd on the Windows side and attach the USB device specified in the script.
 
 Where required powershell is invoked requesting Administrator permissions.  This causes a UAC popup to appear.  Attaching, Detaching or starting the USBIPD service all require administrator privileges.
 
