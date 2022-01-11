@@ -6,6 +6,7 @@ I have been doing more WSL work.  These are the notes I have made since there ar
 ## Administration
 * [Backup_Clone.md](Backup_Clone.md) - Backup, Restore, and Clone a WSL distribution  
 * [Autostart_Services.md](Autostart_Services.md) - Autostart services on new WSL instance
+* [Enable_USB.md](Enable_USB.md) - Enable USB devices from Windows to WSL
 
 ## Development
 * [Exec_Windows_Admin.md](Exec_Windows_Admin.md) - Execute commands on the Windows side as a normal user, admin, or arbitrary user  
