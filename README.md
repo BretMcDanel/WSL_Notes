@@ -10,6 +10,7 @@ I have been doing more WSL work.  These are the notes I have made since there ar
 
 ## Development
 * [Exec_Windows_Admin.md](Exec_Windows_Admin.md) - Execute commands on the Windows side as a normal user, admin, or arbitrary user  
+* [Docker.md](Docker.md) - Set up Docker environment for WSL specific environment
 
 ## Kernel
 * [Kernel_Build.md](Kernel_Build.md) - Build a new kernel for WSL systems  
