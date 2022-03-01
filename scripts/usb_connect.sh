@@ -2,7 +2,7 @@
 
 function usage() {
     echo Usage: $0 \[command\] \[USB name \| USB BusID\]
-    echo -e \\tcommand is connect, disconnect, reconnect
+    echo -e \\tcommand is connect, disconnect, reconnect, list
     echo 
     echo -e \\tUSB name is the name from usbipd list
     echo 
@@ -46,6 +46,9 @@ if [ $# -ne 2 ]; then
 fi
 
 case $1 in
+    list)
+	usbipd.exe list
+	;;
     connect | start)
 	devid=$(getDevID $2 "attach")
 
